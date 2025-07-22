@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lekgau Shuttles & Travel Services</title>
+  <link rel="stylesheet" href="unity.css" />
+  <script type="lebzaagain.js"></script>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <style>
+    form { max-width: 400px; margin: auto; display: flex; flex-direction: column; gap: 10px; }
+    input, textarea, button { padding: 10px; font-size: 1em; }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1><span class="highlight">LEKGAU</span> SHUTTLES & TRAVEL SERVICES</h1>
+  </header>
+
+  <section class="hero">
+    <img src="C:\Users\ICT_User21.ATS-HO\Desktop\Personal\lebza\newattempt\image_jpeg (1).jpg" width="150" height="50" alt="Lekgau Shuttle Van" />
+  </section>
+
+  <section class="content">
+    <h2>MEMORIES IN EXPERIENCES</h2>
+    <p>Providing you with safe and secure transport to your destination.</p>
+  </section>
+
+  <section id="privacy-policy">
+    <h3>Privacy Policy</h3>
+    <p>We are committed to protecting your personal information...</p>
+  </section>
+
+  <form id="quote-form">
+    <input type="text" name="name" id="name" placeholder="Full Name" required />
+    <input type="tel" name="phone" id="phone" placeholder="Phone Number" required />
+    <input type="email" name="email" id="email" placeholder="Email Address" required />
+    <textarea name="message" id="message" placeholder="Your Enquiry" required></textarea>
+    <button type="submit">Submit</button>
+  </form>
+
+  <section class="contact">
+    <h3>Contact Us</h3>
+    <a href="https://wa.me/0640107069" class="whatsapp" target="_blank" rel="noopener noreferrer">
+      WhatsApp Us <strong>0640107069</strong>
+    </a>
+    <p>📞 064 010 7069 | 064 010 7069 | 064 010 7069<br />
+      📧 <a href="mokgohloail897@gmail.com">mokgohloail897@gmail.com</a> |
+      <a href="mailto:unityrebelogile@gmail.com">unityrebelogile@gmail.com</a>
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 Lekgau Shuttles. All rights reserved.
+  </footer>
+
+  <script>
+    emailjs.init('9njx40oBNkogm9Nvz'); // Replace with your real public key
+
+    document.getElementById("quote-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const phone = document.getElementById("phone").value.trim();
+      const phonePattern = /^0[6-8][0-9]{8}$/;
+      if (!phonePattern.test(phone)) {
+        alert("Please enter a valid 10-digit South African phone number.");
+        return;
+      }
+      emailjs.sendForm('service_9dmwkqg', 'template_walmoor', this)//send to me
+        .then(() => {
+          return emailjs.sendForm('service_9dmwkqg', 'template_gguqemc', this);//auto reply
+        })
+        .then(() => {
+          alert("Thank you for your enquiry! We’ll get back to you shortly.");
+          this.reset();
+        })
+        .catch((err) => {
+          console.error("Sending failed:", err);
+          alert("There was an error sending your message.");
+        });
+    });
+  </script>
+</body>
+</html>
